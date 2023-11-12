@@ -4,10 +4,13 @@ from django.urls import path, include
 from rest_framework_simplejwt.views import TokenRefreshView
 from rest_framework_simplejwt.views import TokenObtainPairView
 
+from core.views.user import UserRegistrationAPIView
+
 
 api_urls = [
     path('rooms/', include('rooms.urls.room')),
     path('messages/', include('chat_messages.urls.messages')),
+    path('user/register/', UserRegistrationAPIView.as_view(), name='user-register'),
 ]
 
 urlpatterns = [
